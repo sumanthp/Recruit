@@ -37,12 +37,25 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
         .state('login', {
             url: '/login',
-            templateUrl: 'login/login.html'
+            templateUrl: 'login/login.html',
+            css: 'login/student_login.css'
+
+        })
+
+        .state('recruit_login', {
+            url: '/login',
+            templateUrl: 'login/recruit_login.html'
+
         })
 
         .state('register', {
             url: '/register',
             templateUrl: 'register/register.html'
+        })
+
+        .state('recruit_register', {
+            url: '/register',
+            templateUrl: 'register/recruit_register.html'
         });
 
 });
