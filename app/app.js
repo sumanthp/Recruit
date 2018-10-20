@@ -1,10 +1,11 @@
-'use strict';
 
 // Declare app level module which depends on views, and components
-var routerApp = angular.module('recruitApp', ['ui.router']);
-
+var routerApp = angular.module('recruitApp', ['ui.router','recruitApp.LoginController', 'recruitApp.RegistrationController', 'firebase', 'recruitApp.Authentication']);
+/*routerApp.controller('LoginController', 'RegistrationController', ['$scope', function ($scope) {
+    $scope.message = 'Welcome to Recruit';
+}]);*/
 routerApp.config(function($stateProvider, $urlRouterProvider) {
-
+    "use strict";
     $urlRouterProvider.otherwise('/recruit');
 
     $stateProvider
@@ -38,7 +39,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         .state('login', {
             url: '/login',
             templateUrl: 'login/login.html',
-            css: 'login/student_login.css'
+            controller: 'LoginController'
 
         })
 
@@ -50,7 +51,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
         .state('register', {
             url: '/register',
-            templateUrl: 'register/register.html'
+            templateUrl: 'register/register.html',
+            controller: 'RegistrationController'
         })
 
         .state('recruit_register', {
