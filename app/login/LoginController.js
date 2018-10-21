@@ -5,5 +5,14 @@ angular.module('recruitApp.LoginController',['recruitApp.Authentication'])
         $scope.login = function () {
             Authentication.login($scope.user);
         };
+        $scope.facebookLogin = function(){
+            Authentication.facebookLogin();
+        };
+        $scope.linkedinLogin = function(){
+            Authentication.linkedinLogin();
+        };
+        $scope.googleLogin = function(){
+            Authentication.googleLogin();
+        };
 
 }]);

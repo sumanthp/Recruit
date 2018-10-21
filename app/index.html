@@ -13,9 +13,9 @@
                 <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
                 <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
                 <link rel="stylesheet" href="app.css">
-                <link rel="stylesheet" href="style.css">
+                <link rel="stylesheet" href="assets/css/style.css">
                 <link rel="stylesheet" href="login/student_login.css">
-
+                <link rel="stylesheet" href="assets/css/Footer-with-button-logo.css">
                 <!-- CSS (load bootstrap) -->
                 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
                 <!--<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
@@ -36,6 +36,7 @@
                 <script src="app.js"></script>
                 <script src="login/LoginController.js"></script>
                 <script src="register/RegistrationController.js"></script>
+                <script src="resetpassword/ForgotPasswordController.js"></script>
                 <script src="services/authentication.js"></script>
                 <!-- Firebase Athentication Js  -->
                 <script src="bower_components/firebase/firebase.js"></script>
@@ -44,15 +45,7 @@
                 <script src="bower_components/firebase/firebase-database.js"></script>
                 <script>
                     // Initialize Firebase
-                    var config = {
-                        apiKey: "AIzaSyD-ntzQCkESWnRBQRXIRx5y3xO-k2Yqouw",
-                        authDomain: "recruit-5fa61.firebaseapp.com",
-                        databaseURL: "https://recruit-5fa61.firebaseio.com",
-                        projectId: "recruit-5fa61",
-                        storageBucket: "recruit-5fa61.appspot.com",
-                        messagingSenderId: "837643129452"
-                    };
-                    firebase.initializeApp(config);
+
                 </script>
                 <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
         </head>
@@ -103,9 +96,54 @@
                                         </div>
                                 </div>
                         </nav>
-                <div class="container">
+                <div class="container content">
                         <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
                         <div ui-view></div>
                 </div>
+                        <footer id="myFooter">
+                                <div class="container">
+                                        <div class="row">
+                                                <div class="col-sm-3">
+                                                        <h2 class="logo"><a ui-sref="#"> Recruit </a></h2>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                        <h5>Get started</h5>
+                                                        <ul>
+                                                                <li><a ui-sref="#">Home</a></li>
+                                                                <li><a ui-sref="login">Login</a></li>
+                                                                <li><a ui-sref="register">Register</a></li>
+                                                        </ul>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                        <h5>About us</h5>
+                                                        <ul>
+                                                                <li><a ui-sref="companies">Company Information</a></li>
+                                                                <li><a ui-sref="contact">Contact us</a></li>
+                                                                <li><a ui-sref="#">Reviews</a></li>
+                                                        </ul>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                        <h5>Support</h5>
+                                                        <ul>
+                                                                <li><a ui-sref="#">FAQ</a></li>
+                                                                <li><a ui-sref="#">Help desk</a></li>
+                                                                <li><a ui-sref="#">Customers</a></li>
+                                                        </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                        <div class="social-networks">
+                                                                <a ui-sref="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                                                <a ui-sref="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                                                <a ui-sref="#" class="google"><i class="fa fa-google-plus"></i></a>
+                                                        </div>
+                                                        <button type="button" class="btn btn-default">Contact us</button>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="footer-copyright">
+                                        <p>© 2018 Recruit Services </p>
+                                </div>
+                        </footer>
+
         </body>
 </html>
