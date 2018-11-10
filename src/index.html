@@ -1,0 +1,96 @@
+<!doctype html>
+<html ng-app="recruit" ng-strict-di>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>recruit</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body>
+
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <div class="container content">
+    <div ui-view></div>
+  </div>
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  <footer id="myFooter">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <h2 class="logo"><a ui-sref="#"> Recruit </a></h2>
+        </div>
+        <div class="col-sm-2">
+          <h5>Get started</h5>
+          <ul>
+            <li><a ui-sref="home">Home</a></li>
+            <li><a ui-sref="login">Login</a></li>
+            <li><a ui-sref="register">Register</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-2">
+          <h5>About us</h5>
+          <ul>
+            <li><a ui-sref="companies">Company Information</a></li>
+            <li><a ui-sref="contact">Contact us</a></li>
+            <li><a ui-sref="home">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-2">
+          <h5>Support</h5>
+          <ul>
+            <li><a ui-sref="home">FAQ</a></li>
+            <li><a ui-sref="home">Help desk</a></li>
+            <li><a ui-sref="home">Customers</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-3">
+          <div class="social-networks">
+            <a ui-sref="home" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a ui-sref="home" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a ui-sref="home" class="google"><i class="fa fa-google-plus"></i></a>
+          </div>
+          <button type="button" class="btn btn-default">Contact us</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>© 2018 Recruit Services </p>
+    </div>
+  </footer>
+
+
+  </body>
+</html>
