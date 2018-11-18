@@ -11,6 +11,14 @@ var gulp = require('gulp');
 var gulp        = require('gulp');
 var deploy      = require('gulp-gh-pages');
 
+gulp.task('serveprod', function() {
+  connect.server({
+    root: "/home/sumanth/Recruit",
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
+
 /**
  * Push build to gh-pages
  */
