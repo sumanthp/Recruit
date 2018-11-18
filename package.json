@@ -57,11 +57,12 @@
   "scripts": {
     "test": "gulp test",
     "build": "gulp",
-    "start": "gulp serve",
+    "start": "gulp server",
     "postinstall": "bower cache clean && bower install"
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.10.0",
+    "npm": ">=2.1.0"
   }
 }

@@ -10,13 +10,12 @@ var fs = require('fs');
 var gulp = require('gulp');
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
-var deploy = require('gulp-gh-pages');
 
 gulp.task("heroku:production", function(){
-  console.log('hello'); // the task does not need to do anything.
+ // console.log('hello'); // the task does not need to do anything.
 });
 
-gulp.task('serve', function() {
+gulp.task('server', function() {
   browserSync({
     server: {
       baseDir: './'
@@ -25,14 +24,6 @@ gulp.task('serve', function() {
   });
 
   gulp.watch(['*.html', 'css/*.css', 'js/*.js', 'views/*.html', 'template/*.html', './*.html'], {cwd: 'app'}, reload);
-});
-
-/**
- * Push build to gh-pages
- */
-gulp.task('deploy', function () {
-  return gulp.src("./dist/**/*")
-    .pipe(deploy())
 });
 /**
  *  This will load all js or coffee files in the gulp directory
