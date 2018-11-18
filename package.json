@@ -57,7 +57,8 @@
   "scripts": {
     "test": "gulp test",
     "build": "gulp",
-    "start": "gulp serve"
+    "start": "gulp serve",
+    "postinstall": "bower cache clean && bower install"
   },
   "devDependencies": {},
   "engines": {
