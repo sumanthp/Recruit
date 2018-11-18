@@ -8,7 +8,16 @@
 
 var fs = require('fs');
 var gulp = require('gulp');
+var gulp        = require('gulp');
+var deploy      = require('gulp-gh-pages');
 
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
 /**
  *  This will load all js or coffee files in the gulp directory
  *  in order to load all gulp tasks
