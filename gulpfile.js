@@ -8,8 +8,9 @@
 
 var fs = require('fs');
 var gulp = require('gulp');
-var gulp        = require('gulp');
-var deploy      = require('gulp-gh-pages');
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var deploy = require('gulp-gh-pages');
 
 gulp.task("heroku:production", function(){
   console.log('hello'); // the task does not need to do anything.
