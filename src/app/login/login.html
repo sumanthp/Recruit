@@ -11,7 +11,7 @@
                                                 <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                                         <input type="email" class="form-control" name="email" placeholder="Email Id"
-                                                         ng-model="login.email" ng-required="true">
+                                                         ng-model="login.user.email" ng-required="true">
                                                 </div>
                                                 <span class="error validationerror" ng-show="loginform.email.$invalid && loginform.email.$touched">Enter valid Email</span>
                                                 <span class="help-block"></span>
@@ -19,7 +19,7 @@
                                                 <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                                         <input  type="password" class="form-control" name="password" placeholder="Password"
-                                                        ng-model="login.password" ng-required="true">
+                                                        ng-model="login.user.password" ng-required="true">
                                                 </div>
                                                 <span class="error validationerror" ng-show="loginform.password.$invalid && loginform.password.$touched">Password is required</span>
                                                 <span class="help-block"></span>
@@ -39,19 +39,19 @@
 
                 <div class="row omb_row-sm-offset-3 omb_socialButtons">
                         <div class="col-xs-4 col-sm-2">
-                                <a  class="btn btn-lg btn-block omb_btn-facebook" ng-click="facebookLogin()">
+                                <a  class="btn btn-lg btn-block omb_btn-facebook" ng-click="login.thirdpartylogin('facebook')">
                                         <i class="fa fa-facebook visible-xs"></i>
                                         <span class="hidden-xs">Facebook</span>
                                 </a>
                         </div>
                         <div class="col-xs-4 col-sm-2">
-                                <a ng-click="linkedinLogin()" class="btn btn-lg btn-block omb_btn-twitter">
+                                <a ng-click="login.thirdpartylogin('linkedin')" class="btn btn-lg btn-block omb_btn-twitter">
                                         <i class="fa fa-linkedin visible-xs"></i>
                                         <span class="hidden-xs">Linkedin</span>
                                 </a>
                         </div>
                         <div class="col-xs-4 col-sm-2">
-                                <a ng-click="googleLogin()" class="btn btn-lg btn-block omb_btn-google">
+                                <a ng-click="login.thirdpartylogin('google')" class="btn btn-lg btn-block omb_btn-google">
                                         <i class="fa fa-google-plus visible-xs"></i>
                                         <span class="hidden-xs">Google</span>
                                 </a>
@@ -70,5 +70,14 @@
                                         </p>
                                 </div>
                         </div>
+                <div class="jumbotron text-center" ng-show="login.loading">
+                  <span class="glyphicon glyphicon-repeat spinner">Validating...</span>
+                </div>
+                <div class="row show-hide-message" ng-show="login.successMessage">
+                  <div class="alert alert-success">{{login.successMessage}}</div>
+                </div>
+                <div class="row show-hide-message" ng-show="login.errorMessage">
+                  <div class="alert alert-danger">{{login.errorMessage}}</div>
+                </div>
         </div>
 </div>
