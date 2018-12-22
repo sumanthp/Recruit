@@ -1,23 +1,34 @@
-angular.module('recruitApp.RegistrationController',['recruitApp.Authentication'])
-    .controller('RegistrationController', ['$scope', '$http', 'Authentication', '$httpParamSerializerJQLike', '$state', function ($scope, $http, Authentication, $httpParamSerializerJQLike, $state){
-        "use strict";
-        $scope.message="Register with your Email Id";
-        $scope.register = function () {
-            //Authentication.register($scope.user);
-            $http({
-                method:"POST", 
-                url:"https://recruit-apiservices.herokuapp.com/api/register", 
-                data:$httpParamSerializerJQLike($scope.user),
-                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
-            }).success(function(data, status, headers, config){
-                if(data.message){
-                    $scope.success = data.message;
-                    $state.go('recruit')
-                }
-            }).error(function(data, status, headers, config){
-                if(data.message){
-                    $scope.success = data.message;
+(function () {
+    'use strict';
+
+    angular
+        .module('recruitApp')
+        .controller('RegistrationController', RegistrationController);
+
+        RegistrationController.$inject = ['$location', 'AuthenticationService', '$scope'];
+    function RegistrationController($location, AuthenticationService, $scope) {
+        var vm = this;
+        $scope.message = "Register with your Email Id";
+        $scope.register = register;
+
+        (function initController() {
+            // reset register status
+            AuthenticationService.ClearCredentials();
+        })();
+
+        function register() {
+            $scope.dataLoading = true;
+            AuthenticationService.Register($scope.user, function (response) {
+                if (response.success) {
+                    AuthenticationService.SetCredentials($scope.user);
+                    $location.path('/');
+                } else {
+                    //FlashService.Error(response.message);
+                    $scope.dataLoading = false;
+                    $scope.message = response.data.message;
                 }
             });
         };
-}]);
+    }
+
+})();
