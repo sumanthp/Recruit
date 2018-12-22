@@ -46,8 +46,8 @@
         function GetByUserLoginDetails(user){
             return $http({
                 method:"POST", 
-                // url:"https://recruit-apiservices.herokuapp.com/api/login", 
-                url:"http://localhost:5000/api/login",
+                url:"https://recruit-apiservices.herokuapp.com/api/login", 
+                //url:"http://localhost:5000/api/login",
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
             }).then(handleSuccess,handleError);
@@ -57,8 +57,8 @@
         function Register(user){
             return $http({
                 method:"POST", 
-                // url:"https://recruit-apiservices.herokuapp.com/api/login", 
-                url:"http://localhost:5000/api/register",
+                url:"https://recruit-apiservices.herokuapp.com/api/register", 
+                //url:"http://localhost:5000/api/register",
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
             }).then(handleSuccess,handleError);
