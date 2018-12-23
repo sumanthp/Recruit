@@ -21,7 +21,7 @@
             AuthenticationService.Register($scope.user, function (response) {
                 if (response.success) {
                     AuthenticationService.SetCredentials($scope.user);
-                    $location.path('/');
+                    $location.path('/about');
                 } else {
                     //FlashService.Error(response.message);
                     $scope.dataLoading = false;
