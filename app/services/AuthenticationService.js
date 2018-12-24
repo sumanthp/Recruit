@@ -3,10 +3,12 @@
 
     angular
         .module('recruitApp')
-        .factory('AuthenticationService', AuthenticationService);
+        .factory('AuthenticationService', AuthenticationService)
+        .factory('AuthToken', AuthToken)
+        .factory('AuthInterceptors', AuthInterceptors);
 
-    AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService', '$httpParamSerializerJQLike'];
-    function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService, $httpParamSerializerJQLike) {
+    AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService', '$httpParamSerializerJQLike', 'AuthToken', '$window'];
+    function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService, $httpParamSerializerJQLike, AuthToken, $window) {
         var service = {};
 
         service.Login = Login;
@@ -14,7 +16,9 @@
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
         service.FacebookLogin = FacebookLogin;
-
+        service.isLoggedIn = isLoggedIn;
+        service.Logout = Logout;
+        service.GetUser = GetUser;
         return service;
 
         function Login(user, callback) {
@@ -44,6 +48,8 @@
             UserService.GetByUserLoginDetails($httpParamSerializerJQLike(user)).then(function(response){
                 var response;
                 if(response.status==200){
+                    if(response.data!=null && response.data.token!=null)
+                        AuthToken.setToken(response.data.token);
                     response = { success: true, data:response.data};
                 }
                 else{
@@ -53,9 +59,33 @@
             });
         }
 
+        function isLoggedIn(){
+            if(AuthToken.getToken()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        function GetUser(callback){
+            const token = AuthToken.getToken();
+            if(token!=null){
+                UserService.GetUserDetails().then(function(response){
+                    if(response == null){
+                        response = {message:"Failed to get the user details"};
+                    }
+                    callback(response);
+                })
+            }else{
+                $q.reject({message: 'User has no token'});
+            }
+        }
+
         function Register(user, callback){
             UserService.Register($httpParamSerializerJQLike(user)).then(function(response){
                 if(response.status==200){
+                    if(response.data!=null && response.data.token!=null)
+                        AuthToken.setToken(response.data.token);
                     response = { success: true, data:response.data};
                 }else{
                     response = { success: false, data:response.data};
@@ -98,6 +128,10 @@
             $rootScope.globals = {};
             $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';
+        }
+
+        function Logout(){
+            AuthToken.setToken();
         }
     }
 
@@ -182,5 +216,35 @@
             return output;
         }
     };
+
+    AuthToken.$inject = ['$window'];
+    function AuthToken($window){
+        var authTokenFactory = {};
+        authTokenFactory.setToken = function(token){
+            if(token){
+                $window.localStorage.setItem('token', token);
+            }else{
+                $window.localStorage.removeItem('token');
+            }
+        };
+
+        authTokenFactory.getToken = function(){
+            return $window.localStorage.getItem('token');
+        };
+        return authTokenFactory;
+    }
+
+    AuthInterceptors.$inject = ['AuthToken'];
+    function AuthInterceptors(AuthToken){
+        var authInterceptors = {};
+        authInterceptors.request = function(config){
+            var token = AuthToken.getToken();
+            if(token){
+                config.headers['x-access-token'] = token;
+            }
+            return config;
+        }
+        return authInterceptors;
+    }
 
 })();

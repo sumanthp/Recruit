@@ -5,25 +5,29 @@
         .module('recruitApp')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService', '$scope'];
-    function LoginController($location, AuthenticationService, $scope) {
-        var vm = this;
+    LoginController.$inject = ['$state', 'AuthenticationService', '$scope'];
+    function LoginController($state, AuthenticationService, $scope) {
+        var login = this;
         $scope.message = "Please Enter your credentials";
-        $scope.login = login;
+        login.isLoggedIn = isLoggedIn;
+        login.isLoggedOut = isLoggedOut;
+        $scope.authenticate = auth;
         $scope.facebookLogin = facebook_login;
         (function initController() {
             // reset login status
             AuthenticationService.ClearCredentials();
         })();
 
-        function login() {
+        function auth() {
             $scope.dataLoading = true;
             AuthenticationService.Login($scope.user, function (response) {
                 if (response.success) {
                     $scope.dataLoading = false;
                     $scope.successMsg = response.data.message;
                     AuthenticationService.SetCredentials($scope.user);
-                    $location.path('/about');
+                    $state.go('profile');
+                    $scope.user = '';
+                    $scope.successMsg = false;
                 } else {
                     $scope.errorMsg = response.data.message;
                     $scope.dataLoading = false;
@@ -36,12 +40,35 @@
             AuthenticationService.FacebookLogin(function(response){
                 if(response.email){
                     $scope.successMsg = response.data.message;
-                    $location.path('/home');
+                    $state.go('profile');
                 }else{
                     $scope.errorMsg = response.message;
                 }
             });
         };
+
+        function isLoggedIn(){
+            if(AuthenticationService.isLoggedIn()){
+                console.log('Success: User is Logged in');
+                AuthenticationService.GetUser();
+                return true;
+            }else{
+                console.log('Failure: User is not Logged in');
+                return false;
+            }
+        };
+
+        function isLoggedOut(){
+            if(AuthenticationService.isLoggedIn()){
+                console.log('Success: User is Logged in');
+                return false;
+            }else{
+                console.log('Failure: User is not Logged in');
+                return true;
+            }
+        }
+
+
     }
 
 })();
