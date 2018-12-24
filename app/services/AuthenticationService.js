@@ -13,6 +13,7 @@
         service.Register = Register;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
+        service.FacebookLogin = FacebookLogin;
 
         return service;
 
@@ -72,7 +73,7 @@
                     authdata: authdata
                 }
             };
-
+            
             // set default auth header for http requests
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
 
@@ -80,6 +81,17 @@
             var cookieExp = new Date();
             cookieExp.setDate(cookieExp.getDate() + 7);
             $cookies.putObject('globals', $rootScope.globals, { expires: cookieExp });
+        }
+
+        function FacebookLogin(callback){
+            UserService.FacebookAuth().then(function(response){
+                if(response.sucess && response.email!=null){
+                    response = {success:true, email:response.email, token:response.token};
+                }else{
+                    response = {success:false, message:response.message};
+                }
+                callback(response);
+            });
         }
 
         function ClearCredentials() {

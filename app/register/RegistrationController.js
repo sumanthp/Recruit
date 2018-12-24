@@ -20,12 +20,14 @@
             $scope.dataLoading = true;
             AuthenticationService.Register($scope.user, function (response) {
                 if (response.success) {
+                    $scope.dataLoading = false;
+                    $scope.successMsg = response.data.message;
                     AuthenticationService.SetCredentials($scope.user);
                     $location.path('/about');
                 } else {
                     //FlashService.Error(response.message);
                     $scope.dataLoading = false;
-                    $scope.message = response.data.message;
+                    $scope.errorMsg = response.data.message;
                 }
             });
         };

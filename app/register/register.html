@@ -33,10 +33,12 @@
                     </div>
                     <span class="error validationerror" ng-show="registerform.password.$invalid && registerform.password.$touched">Password is required</span>
                     <span class="help-block"></span>
-
+                    <div class="g-recaptcha" data-sitekey="6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH"></div>
+                    <br/>
                     <button class="btn btn-lg btn-primary btn-block" type="submit"
                             ng-disabled="registerform.$invalid" ">Register</button>
                 </form>
+                <i ng-if="dataLoading" class="fa fa-circle-o-notch fa-spin" style="font-size:48px;color: deepskyblue"></i>
             </div>
         </div>
         <div class="row omb_row-sm-offset-3 omb_loginOr">
@@ -72,6 +74,12 @@
                     <a ui-sref="login">Sign In</a>
                 </p>
             </div>
+        </div>
+        <div class="row show-hide-message" ng-show="successMsg">
+                <div class="alert alert-success">{{successMsg}}</div>
+        </div>
+        <div class="row show-hide-message" ng-show="errorMsg">
+                <div class="alert alert-danger">{{errorMsg}}</div>
         </div>
     </div>
 </div>
