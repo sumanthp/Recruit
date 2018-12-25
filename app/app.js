@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('recruitApp', ['ui.router', 'ngCookies'])
+        .module('recruitApp', ['ui.router', 'ngCookies', 'ngMaterial', 'ngMessages', 'vcRecaptcha'])
         .config(config)
         .run(run);
 

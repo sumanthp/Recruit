@@ -23,7 +23,13 @@
                                                 </div>
                                                 <span class="error validationerror" ng-show="loginform.password.$invalid && loginform.password.$touched">Password is required</span>
                                                 <span class="help-block"></span>
-
+                                                <!-- <div class="g-recaptcha" data-sitekey="6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH"></div> -->
+                                                <!-- <div class="g-recaptcha" data-sitekey="6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq"></div> -->
+                                                <div
+                                                vc-recaptcha
+                                                key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"
+                                                ></div>
+                                                <br/>
                                                 <button class="btn btn-lg btn-primary btn-block" type="submit"
                                                         ng-disabled="loginform.$invalid">Login</button>      
                                         </form>

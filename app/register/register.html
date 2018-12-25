@@ -13,7 +13,7 @@
                         <input type="text" class="form-control" name="name" placeholder="Full Name"
                                ng-model="user.name" ng-required="true">
                     </div>
-
+                   
                     <span class="error validationerror" ng-show="registerform.name.$invalid && registerform.name.$touched">Name is required</span>
                     <span class="help-block"></span>
 
@@ -33,7 +33,12 @@
                     </div>
                     <span class="error validationerror" ng-show="registerform.password.$invalid && registerform.password.$touched">Password is required</span>
                     <span class="help-block"></span>
-                    <div class="g-recaptcha" data-sitekey="6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH"></div>
+                    <!-- <div class="g-recaptcha" data-sitekey="6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH"></div> -->
+                    <!-- <div class="g-recaptcha" data-sitekey="6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq"></div> -->
+                    <div
+                        vc-recaptcha
+                        key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"
+                    ></div>
                     <br/>
                     <button class="btn btn-lg btn-primary btn-block" type="submit"
                             ng-disabled="registerform.$invalid" ">Register</button>

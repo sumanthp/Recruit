@@ -5,8 +5,8 @@
         .module('recruitApp')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$state', 'AuthenticationService', '$scope'];
-    function LoginController($state, AuthenticationService, $scope) {
+    LoginController.$inject = ['$state', 'AuthenticationService', '$scope', '$timeout'];
+    function LoginController($state, AuthenticationService, $scope, $timeout) {
         var login = this;
         $scope.message = "Please Enter your credentials";
         login.isLoggedIn = isLoggedIn;
@@ -37,14 +37,19 @@
 
         function facebook_login(){
             $scope.dataLoading = true;
-            AuthenticationService.FacebookLogin(function(response){
-                if(response.email){
-                    $scope.successMsg = response.data.message;
-                    $state.go('profile');
-                }else{
-                    $scope.errorMsg = response.message;
-                }
-            });
+            $timeout(function(){
+                AuthenticationService.FacebookLogin(function(response){
+                    if(response.email){
+                        $scope.successMsg = response.data.message;
+                        $state.go('profile');
+                        $scope.successMsg = false;
+                    }else{
+                        $scope.dataLoading = false;
+                        $scope.errorMsg = response.message;
+                    }
+                });
+            },5000, $scope.errorMsg="Failed to redirect to facebook");
+
         };
 
         function isLoggedIn(){
