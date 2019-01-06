@@ -6,8 +6,8 @@
         .config(config)
         .run(run);
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
-    function config($stateProvider, $urlRouterProvider, $httpProvider) {
+    config.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider'];
+    function config($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
         $httpProvider.interceptors.push('AuthInterceptors');
         $urlRouterProvider.otherwise('/recruit');
 
@@ -82,7 +82,8 @@
                 templateUrl:'profile/profile.html',
                 controller:'ProfileController',
                 controllerAs: 'profile'
-            })
+            });
+            $locationProvider.html5Mode(true);
     }
 
     run.$inject = ['$rootScope', '$location', '$cookies', '$http', 'AuthenticationService'];
