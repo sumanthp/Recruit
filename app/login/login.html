@@ -7,7 +7,7 @@
                         <div class="row omb_row-sm-offset-3">
                                 <div class="col-xs-12 col-sm-6">
                                         <form name="loginform" class="omb_loginForm" autocomplete="off"
-                                              ng-submit="login()" novalidate>
+                                              ng-submit="authenticate()" novalidate>
                                                 <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                                         <input type="email" class="form-control" name="email" placeholder="Email Id"
@@ -23,11 +23,18 @@
                                                 </div>
                                                 <span class="error validationerror" ng-show="loginform.password.$invalid && loginform.password.$touched">Password is required</span>
                                                 <span class="help-block"></span>
-
+                                                <!-- <div class="g-recaptcha" data-sitekey="6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH"></div> -->
+                                                <!-- <div class="g-recaptcha" data-sitekey="6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq"></div> -->
+                                                <div
+                                                vc-recaptcha
+                                                key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"
+                                                ></div>
+                                                <br/>
                                                 <button class="btn btn-lg btn-primary btn-block" type="submit"
                                                         ng-disabled="loginform.$invalid">Login</button>      
                                         </form>
-                                        <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                                        <!-- <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/> -->
+                                        <i ng-if="dataLoading" class="fa fa-circle-o-notch fa-spin" style="font-size:48px;color: deepskyblue"></i>
                                 </div>
                         </div>
 
@@ -70,6 +77,14 @@
                                                 <a ui-sref="register">Dont have an account? Register here</a>
                                         </p>
                                 </div>
-                        </div>
+                </div>
+
+                <div class="row show-hide-message" ng-show="successMsg">
+                        <div class="alert alert-success">{{successMsg}}</div>
+                </div>
+                <div class="row show-hide-message" ng-show="errorMsg">
+                        <div class="alert alert-danger">{{errorMsg}}</div>
+                </div>
+
         </div>
 </div>

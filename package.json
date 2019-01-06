@@ -32,9 +32,11 @@
         "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
     },
     "dependencies": {
+        "@material/textfield": "^0.42.1",
         "angular-ui-router": "^1.0.20",
         "angular-ui-router-css": "0.0.0",
         "betsol-ng-ui-router-styles": "^0.2.2",
+        "firebase-tools": "^6.2.2",
         "ng-cookies": "^1.0.2",
         "passport-facebook": "^2.1.1",
         "passport-google": "^0.3.0",
