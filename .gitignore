@@ -6,3 +6,4 @@ tmp
 .DS_Store
 .idea
 app/assets/css/style5.css
+*.cache
