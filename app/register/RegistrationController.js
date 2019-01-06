@@ -5,8 +5,10 @@
         .module('recruitApp')
         .controller('RegistrationController', RegistrationController);
 
-        RegistrationController.$inject = ['$state', 'AuthenticationService', '$scope'];
-    function RegistrationController($state, AuthenticationService, $scope) {
+        RegistrationController.$inject = ['$location', 'AuthenticationService', '$scope'];
+    function RegistrationController($location, AuthenticationService, $scope) {
+        $scope.registrants = ["Student", "Recruiter"];
+
         var vm = this;
         $scope.message = "Register with your Email Id";
         $scope.create = createUser;
