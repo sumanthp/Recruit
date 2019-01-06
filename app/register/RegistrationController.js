@@ -7,6 +7,7 @@
 
         RegistrationController.$inject = ['$location', 'AuthenticationService', '$scope'];
     function RegistrationController($location, AuthenticationService, $scope) {
+        $scope.registrants = ["Student", "Recruiter"];
         var vm = this;
         $scope.message = "Register with your Email Id";
         $scope.register = register;
