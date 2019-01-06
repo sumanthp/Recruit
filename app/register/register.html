@@ -96,6 +96,20 @@
                                 </div>
                                 <span class="error validationerror" ng-show="registerform.company.$invalid && registerform.company.$touched">Company Name is required</span>
                                 <span class="help-block"></span>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input  type="password" class="form-control" name="password" placeholder="Password"
+                                ng-model="user.password" ng-required="true">
+                    </div>
+                    <span class="error validationerror" ng-show="registerform.password.$invalid && registerform.password.$touched">Password is required</span>
+                    <span class="help-block"></span>
+                    <!-- <div class="g-recaptcha" data-sitekey="6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH"></div> -->
+                    <!-- <div class="g-recaptcha" data-sitekey="6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq"></div> -->
+                    <div
+                        vc-recaptcha
+                        key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"
+                    ></div>
+                   
 
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
@@ -193,3 +207,11 @@
 </div>
 
 
+        <div class="row show-hide-message" ng-show="successMsg">
+                <div class="alert alert-success">{{successMsg}}</div>
+        </div>
+        <div class="row show-hide-message" ng-show="errorMsg">
+                <div class="alert alert-danger">{{errorMsg}}</div>
+        </div>
+    </div>
+</div>
