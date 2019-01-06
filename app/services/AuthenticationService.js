@@ -81,6 +81,19 @@
             }
         }
 
+        function RegisterRecruiter(user, callback){
+            UserService.RegisterRecruiter($httpParamSerializerJQLike(user)).then(function(response){
+                if(response.status==200){
+                    if(response.data!=null && response.data.token!=null)
+                        AuthToken.setToken(response.data.token);
+                    response = { success: true, data:response.data};
+                }else{
+                    response = { success: false, data:response.data};
+                }
+                callback(response);
+            });
+        }
+
         function Register(user, callback){
             UserService.Register($httpParamSerializerJQLike(user)).then(function(response){
                 if(response.status==200){
