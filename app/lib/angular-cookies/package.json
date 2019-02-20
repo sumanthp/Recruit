@@ -1,0 +1,64 @@
+{
+  "_from": "angular-cookies",
+  "_id": "angular-cookies@1.7.6",
+  "_inBundle": false,
+  "_integrity": "sha512-BkwpZEruj2crsegrOJJvDIWjEBnIAK9PFq39y5rLtiqc2hOXYTs+sVzgq9qit2dlqZTH+xPIaiP2LXADv64W6g==",
+  "_location": "/angular-cookies",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "angular-cookies",
+    "name": "angular-cookies",
+    "escapedName": "angular-cookies",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-cookies/-/angular-cookies-1.7.6.tgz",
+  "_shasum": "a8f9e81866cbc76d82a15b3a18a84099c9d6fc84",
+  "_spec": "angular-cookies",
+  "_where": "C:\\Users\\SUMANTH\\Desktop\\angular-seed",
+  "author": {
+    "name": "Angular Core Team",
+    "email": "angular-core+npm@google.com"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "AngularJS module for cookies",
+  "homepage": "http://angularjs.org",
+  "jspm": {
+    "shim": {
+      "angular-cookies": {
+        "deps": [
+          "angular"
+        ]
+      }
+    }
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "cookies",
+    "client-side"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "angular-cookies",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.7.6"
+}
