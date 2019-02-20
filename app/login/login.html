@@ -1,0 +1,38 @@
+
+<div class="ui raised very padded text container segment" ng-cloak>
+  <h2 class="ui header">Login</h2>
+  <br/>
+  <form name="loginform"  autocomplete="off"
+  ng-submit="authenticate()" novalidate>
+
+      <md-input-container class="md-block">
+                  <md-icon><i class="fas fa-envelope"></i></md-icon>
+                  <input name="email" ng-model="user.email" type="email" placeholder="Email" required>
+                  <div ng-messages="loginform.email.$error">
+                    <div ng-message="required">Enter valid Email</div>    
+                  </div>
+      </md-input-container>
+      <span class="error validationerror" ng-show="loginform.email.$invalid && loginform.email.$touched"></span>
+      <span class="help-block"></span>
+
+      <md-input-container class="md-icon-float md-block">
+                  <!-- Use floating label instead of placeholder -->
+                  <label>Password</label>
+                  <md-icon><i class="fas fa-user"></i></md-icon>
+                  <input name="password" ng-model="user.password" type="password" required>
+                  <div ng-messages="loginform.password.$error">
+                    <div ng-message="required">Password is required</div>    
+                  </div>
+     </md-input-container>
+     <span class="error validationerror" ng-show="loginform.password.$invalid && loginform.password.$touched"></span>
+     <span class="help-block"></span>
+
+     <!-- <div class = "center" vc-recaptcha key="'6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH'"></div> -->
+     <div class ="center" vc-recaptcha key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"></div> 
+     <br/>
+      <md-input-container>
+      <md-button ng-disabled="loginform.$invalid"  class="md-raised md-primary" ng-click="authenticate()">Login</md-button>
+      </md-input-container>
+  </form>
+</div>
+<div><br/></div>

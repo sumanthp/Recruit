@@ -31,14 +31,14 @@
       'lib/angular/angular.js',
       'lib/angular-route/angular-route.js',
       'app.js',
-      'view1/view1.js',
-      'view2/view2.js',
+      'login/LoginController.js',
+      'register/RegistrationController.js',
       'core/version/version.js',
       'core/version/version-directive.js',
       'core/version/interpolate-filter.js'
     ], function() {
       // when all is done, execute bootstrap AngularJS application
-      angular.bootstrap(document, ['myApp']);
+      angular.bootstrap(document, ['recruitApp']);
     });
   </script>
   <title>My AngularJS App</title>
@@ -46,8 +46,8 @@
 </head>
 <body ng-cloak>
   <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
+    <li><a href="#!/login">Login</a></li>
+    <li><a href="#!/register">Register</a></li>
   </ul>
 
   <div ng-view></div>

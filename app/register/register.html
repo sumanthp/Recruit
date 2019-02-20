@@ -1,0 +1,180 @@
+
+<div class="ui raised very padded text container segment" ng-cloak>
+    <h2 class="ui header">Register for Recruit</h2>
+
+    <md-input-container flex="50">
+        <label>Select User Type</label>
+        <md-select name="type" ng-model="user.type" required>
+          <md-option value="Student">Student</md-option>
+          <md-option value="Recruiter">Recruiter</md-option>
+        </md-select>
+    </md-input-container>   
+    
+    <div ng-if="user.type == 'Student'">
+
+        <form name="registerform"  autocomplete="off" novalidate>
+                
+            <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>First Name</label>
+            <md-icon><i class="fas fa-user"></i></md-icon>
+            <input name="firstname" ng-model="user.firstname" type="text" required>
+            <div ng-messages="registerform.firstname.$error">
+                <div ng-message="required">First Name is required</div> 
+            </div>
+            </md-input-container>
+
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <label>Last Name</label>
+                <md-icon><i class="fas fa-user"></i></md-icon>
+                <input name="lastname" ng-model="user.lastname" type="text" required>
+                <div ng-messages="registerform.lastname.$error">
+                    <div ng-message="required">Last Name is required</div> 
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                        <md-icon><i class="fas fa-envelope"></i></md-icon>
+                        <input name="email" ng-model="user.email" type="email" placeholder="Email" required>
+                        <div ng-messages="registerform.email.$error">
+                            <div ng-message="required">Email is required</div> 
+                        </div>
+            </md-input-container>
+            
+            <md-input-container class="md-icon-float md-block">
+                        <md-icon><i class="fas fa-phone"></i></md-icon>
+                        <input name="phone" ng-model="user.phone" type="contact" placeholder="Phone Number"  minlength="10" maxlength=10 required>
+                        <div ng-messages="registerform.phone.$error">
+                            <div ng-message="required">Contact is required</div> 
+                        </div>
+            </md-input-container>
+
+            <md-input-container>
+                        <label>Date of Birth</label>
+                        <md-datepicker name="dob" ng-model="user.dob" required></md-datepicker>
+                        <div ng-messages="registerform.dob.$error">
+                            <div ng-message="required">Please Enter DOB</div> 
+                        </div>
+            </md-input-container>
+
+            <md-input-container class="md-icon-float md-block">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Password</label>
+                        <md-icon><i class="fas fa-lock"></i></md-icon>
+                        <input name="password" ng-model="user.password" type="password" required>
+                        <div ng-messages="registerform.password.$error">
+                            <div ng-message="required">Enter Valid Password</div> 
+                        </div>
+            </md-input-container>
+
+            <md-input-container class="md-icon-float md-block">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Confirm Password</label>
+                        <md-icon><i class="fas fa-lock"></i></md-icon>
+                        <input name="confirmpassword" ng-model="user.confirmpassword" type="password" required>
+                        <div ng-messages="registerform.confirmpassword.$error">
+                            <div ng-message="required">Confirm Password is required</div> 
+                        </div>
+            </md-input-container>
+
+            <span ng-show="registerform.password != registerform.confirmpassword" class="error validationerror">Passwords do not match</span>
+        
+            <!-- <div class = "center" vc-recaptcha key="'6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH'"></div> -->
+            <div  class ="center" vc-recaptcha key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"></div> 
+            <br/>
+        
+            <md-input-container>
+            <md-button ng-disabled="registerform.$invalid"  class="md-raised md-primary" ng-click="createStudent()">Register</md-button>
+            </md-input-container>
+
+        </form>
+
+    </div>
+
+    <div ng-if="user.type == 'Recruiter'">
+
+        <form name="recruiterform"  autocomplete="off" novalidate>
+                
+            <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Company</label>
+            <md-icon><i class="fas fa-briefcase"></i></md-icon>
+            <input name="companyname" ng-model="recruiter.companyName" type="text" required>
+            <div ng-messages="recruiterform.companyname.$error">
+                <div ng-message="required">Company Name is required</div> 
+            </div>
+            </md-input-container>
+    
+            <md-input-container class="md-block">
+                        <md-icon><i class="fas fa-envelope"></i></md-icon>
+                        <input name="email" ng-model="recruiter.email" type="email" placeholder="Email" required>
+                        <div ng-messages="recruiterform.email.$error">
+                            <div ng-message="required">Email is required</div> 
+                        </div>
+            </md-input-container>
+            
+            <md-input-container class="md-icon-float md-block">
+                        <md-icon><i class="fas fa-phone"></i></md-icon>
+                        <input name="phone" ng-model="recruiter.phone" type="contact" placeholder="Phone Number"  minlength="10" maxlength=10 required>
+                        <div ng-messages="recruiterform.phone.$error">
+                            <div ng-message="required">Contact is required</div> 
+                        </div>
+            </md-input-container>
+    
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <label>Address</label>
+                <md-icon><i class="fas fa-map-marker"></i></md-icon>
+                <input name="address" ng-model="recruiter.address" type="text" required>
+                <div ng-messages="recruiterform.address.$error">
+                    <div ng-message="required">Address is required</div> 
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-icon-float md-block">
+                <label>GST No.</label>
+                <md-icon><i class="fas fa-map-marker"></i></md-icon>
+                <input name="gst" ng-model="user.gst" type="text" required>
+                <div ng-messages="recruiterform.gst.$error">
+                    <div ng-message="required">GST is required</div> 
+                </div>
+            </md-input-container>
+    
+            <md-input-container class="md-icon-float md-block">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Password</label>
+                        <md-icon><i class="fas fa-lock"></i></md-icon>
+                        <input name="password" ng-model="recruiter.password" type="password" required>
+                        <div ng-messages="recruiterform.password.$error">
+                            <div ng-message="required">Enter Valid Password</div> 
+                        </div>
+           </md-input-container>
+    
+           <md-input-container class="md-icon-float md-block">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Confirm Password</label>
+                        <md-icon><i class="fas fa-lock"></i></md-icon>
+                        <input name="confirmpassword" ng-model="recruiter.confirmpassword" type="password" required>
+                        <div ng-messages="recruiterform.confirmpassword.$error">
+                            <div ng-message="required">Confirm Password is required</div> 
+                        </div>
+           </md-input-container>
+
+            <span ng-show="recruiterform.password != recruiterform.confirmpassword" class="error validationerror">Passwords do not match</span>
+            <!-- <div class = "center" vc-recaptcha key="'6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH'"></div> -->
+            <div  class ="center" vc-recaptcha key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"></div> 
+
+            <md-input-container>
+                <md-button ng-disabled="recruiterform.$invalid"  class="md-raised md-primary" ng-click="createRecruiter()">Register</md-button>
+            </md-input-container>
+
+           <br/>
+
+        </form>
+    
+    </div>
+
+</div>
+
+<div><br/></div>
