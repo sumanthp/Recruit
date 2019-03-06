@@ -13,6 +13,7 @@
 
         service.Login = Login;
         service.Register = Register;
+        service.RegisterRecruiter = RegisterRecruiter;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
         service.FacebookLogin = FacebookLogin;

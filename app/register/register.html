@@ -100,7 +100,7 @@
             <!-- Use floating label instead of placeholder -->
             <label>Company</label>
             <md-icon><i class="fas fa-briefcase"></i></md-icon>
-            <input name="companyname" ng-model="recruiter.companyName" type="text" required>
+            <input name="companyname" ng-model="user.companyname" type="text" required>
             <div ng-messages="recruiterform.companyname.$error">
                 <div ng-message="required">Company Name is required</div> 
             </div>
@@ -108,7 +108,7 @@
     
             <md-input-container class="md-block">
                         <md-icon><i class="fas fa-envelope"></i></md-icon>
-                        <input name="email" ng-model="recruiter.email" type="email" placeholder="Email" required>
+                        <input name="email" ng-model="user.email" type="email" placeholder="Email" required>
                         <div ng-messages="recruiterform.email.$error">
                             <div ng-message="required">Email is required</div> 
                         </div>
@@ -116,7 +116,7 @@
             
             <md-input-container class="md-icon-float md-block">
                         <md-icon><i class="fas fa-phone"></i></md-icon>
-                        <input name="phone" ng-model="recruiter.phone" type="contact" placeholder="Phone Number"  minlength="10" maxlength=10 required>
+                        <input name="phone" ng-model="user.phone" type="contact" placeholder="Phone Number"  minlength="10" maxlength=10 required>
                         <div ng-messages="recruiterform.phone.$error">
                             <div ng-message="required">Contact is required</div> 
                         </div>
@@ -126,7 +126,7 @@
                 <!-- Use floating label instead of placeholder -->
                 <label>Address</label>
                 <md-icon><i class="fas fa-map-marker"></i></md-icon>
-                <input name="address" ng-model="recruiter.address" type="text" required>
+                <input name="address" ng-model="user.address" type="text" required>
                 <div ng-messages="recruiterform.address.$error">
                     <div ng-message="required">Address is required</div> 
                 </div>
@@ -145,7 +145,7 @@
                         <!-- Use floating label instead of placeholder -->
                         <label>Password</label>
                         <md-icon><i class="fas fa-lock"></i></md-icon>
-                        <input name="password" ng-model="recruiter.password" type="password" required>
+                        <input name="password" ng-model="user.password" type="password" required>
                         <div ng-messages="recruiterform.password.$error">
                             <div ng-message="required">Enter Valid Password</div> 
                         </div>
@@ -155,15 +155,15 @@
                         <!-- Use floating label instead of placeholder -->
                         <label>Confirm Password</label>
                         <md-icon><i class="fas fa-lock"></i></md-icon>
-                        <input name="confirmpassword" ng-model="recruiter.confirmpassword" type="password" required>
+                        <input name="confirmpassword" ng-model="user.confirmpassword" type="password" required>
                         <div ng-messages="recruiterform.confirmpassword.$error">
                             <div ng-message="required">Confirm Password is required</div> 
                         </div>
            </md-input-container>
 
             <span ng-show="recruiterform.password != recruiterform.confirmpassword" class="error validationerror">Passwords do not match</span>
-            <!-- <div class = "center" vc-recaptcha key="'6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH'"></div> -->
-            <div  class ="center" vc-recaptcha key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"></div> 
+            <div class = "center" vc-recaptcha key="'6Lc0UYQUAAAAAFKBFVu_htXhr_dcXB8-t0t9XTGH'"></div>
+            <!-- <div  class ="center" vc-recaptcha key="'6LdVs4QUAAAAAPfUAQDhHL-7p6KrjhU16zXAs8Qq'"></div>  -->
 
             <md-input-container>
                 <md-button ng-disabled="recruiterform.$invalid"  class="md-raised md-primary" ng-click="createRecruiter()">Register</md-button>

@@ -28,7 +28,7 @@
       var vm = this;
       $scope.message = "Register with your Email Id";
       $scope.createStudent = createUser;
-      $scope.createRecruiter = createRecruiter;
+      $scope.createRecruiter = createRecruiterUser;
 
       (function initController() {
           // reset register status
@@ -52,9 +52,9 @@
           });
       };
 
-      function createRecruiter() {
+      function createRecruiterUser() {
           $scope.dataLoading = true;
-          AuthenticationService.RegisterRecruiter($scope.recruiter, function (response) {
+          AuthenticationService.RegisterRecruiter($scope.user, function (response) {
               if (response.success) {
                   $scope.dataLoading = false;
                   $scope.successMsg = response.data.message;

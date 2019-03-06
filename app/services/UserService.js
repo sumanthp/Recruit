@@ -10,6 +10,7 @@
         var service = {};
         service.GetByUserLoginDetails = GetByUserLoginDetails;
         service.Register = Register;
+        service.RegisterRecruiter = RegisterRecruiter;
         service.FacebookAuth = FacebookAuth;
         service.GetUserDetails = GetUserDetails;
 
@@ -18,8 +19,8 @@
         function GetByUserLoginDetails(user){
             return $http({
                 method:"POST", 
-                // url:"https://recruit-apiservices.herokuapp.com/api/login", 
-                url:"http://localhost:5000/api/login",
+                url:"https://recruit-apiservices.herokuapp.com/api/login", 
+                // url:"http://localhost:5000/api/login",
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
             }).then(handleSuccess,handleError);
@@ -29,8 +30,8 @@
         function Register(user){
             return $http({
                 method:"POST", 
-                // url:"https://recruit-apiservices.herokuapp.com/api/register", 
-                url:"http://localhost:5000/api/register",
+                url:"https://recruit-apiservices.herokuapp.com/api/register", 
+                // url:"http://localhost:5000/api/register",
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
             }).then(handleSuccess,handleError);
@@ -41,8 +42,8 @@
         function RegisterRecruiter(user){
             return $http({
                 method:"POST", 
-                // url:"https://recruit-apiservices.herokuapp.com/api/register/recruiter", 
-                url:"http://localhost:5000/api/register/recruiter",
+                url:"https://recruit-apiservices.herokuapp.com/api/register/recruiter", 
+                // url:"http://localhost:5000/api/register/recruiter",
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
             }).then(handleSuccess,handleError);
@@ -51,16 +52,16 @@
         function FacebookAuth(){
             return $http({
                 method: "GET",
-                // url: "https://recruit-apiservices.herokuapp.com/auth/facebook",
-                url: "http://localhost:5000/auth/facebook"
+                url: "https://recruit-apiservices.herokuapp.com/auth/facebook",
+                // url: "http://localhost:5000/auth/facebook"
             }).then(handleSuccess, handleError);
         }
         
         function GetUserDetails(){
                 return $http({
                     method: "POST",
-                    url: "http://localhost:5000/api/getUserDetails",
-                    // url: "https://recruit-apiservices.herokuapp.com/api/getUserDetails",
+                    // url: "http://localhost:5000/api/getUserDetails",
+                    url: "https://recruit-apiservices.herokuapp.com/api/getUserDetails",
                 }).then(handleSuccess,handleError);
         }
 
