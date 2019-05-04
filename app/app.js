@@ -9,7 +9,8 @@ angular.module('recruitApp', [
   'ngCookies',
   'ngMaterial', 
   'ngMessages',
-  'vcRecaptcha'
+  'vcRecaptcha',
+  'angularFileUpload'
 ])
 .config(config)
 .run(run);
@@ -40,6 +41,7 @@ function config($locationProvider,  $urlRouterProvider, $stateProvider, $httpPro
       .state('companies', {
           url: '/companies',
           templateUrl: 'companies/companies.html',
+          controller: 'CompanyController'
       })
 
       .state('contact', {

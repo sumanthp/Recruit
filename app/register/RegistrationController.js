@@ -1,19 +1,3 @@
-// 'use strict';
-
-// angular.module('recruitApp.RegistrationController', ['ngRoute'])
-
-// .config(['$routeProvider', function($routeProvider) {
-//   $routeProvider.when('/register', {
-//     templateUrl: 'register/register.html',
-//     controller: 'RegistrationController'
-//   });
-// }])
-
-// .controller('RegistrationController', [function() {
-
-// }]);
-
-
 (function () {
   'use strict';
 
@@ -24,7 +8,7 @@
       RegistrationController.$inject = ['$location', 'AuthenticationService', '$scope', '$state'];
   function RegistrationController($location, AuthenticationService, $scope, $state) {
       $scope.registrants = ["Student", "Recruiter"];
-
+      //envService.set('development');
       var vm = this;
       $scope.message = "Register with your Email Id";
       $scope.createStudent = createUser;
