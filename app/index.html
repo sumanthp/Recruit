@@ -43,14 +43,21 @@
   <!-- <link href="assets/css/fontstyle.css" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
-
+  <!-- new add -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="lib/css/login.css">
   <link rel="stylesheet" type="text/css" href="lib/css/register.css">-->
   <!-- <link rel="stylesheet" type="text/css" href="lib/css/style.css">
   <link rel="stylesheet" type="text/css" href="lib/css/style5.css">  -->
+  <link rel="stylesheet" type="text/css" href="assets/css/contact.css">
 </head>
 
-<body  ng-app="recruitApp" style="display:flex; flex-direction:column;">
+<body  ng-app="recruitApp" style="display:flex;flex-direction:column;background-image:url(assets/images/back1.jpg);
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+background-attachment:fixed">
         <!-- background-image:url('assets/images/bgi.gif');background-repeat: no-repeat; background-size:cover; -->
 
   <!--[if lt IE 7]
@@ -60,30 +67,30 @@
 
   <!-- <div>AngularJS seed app: v<span app-version></span></div> -->
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav style="background-color:#1F456E" class="navbar navbar-expand-lg">
             <!-- Collection of nav links, forms, and other content for toggling -->
-            <a class="nav-link" ui-sref="recruit" class="navbar-brand">Re-cruit</a>
+            <a style="color:white" class="nav-link" ui-sref="recruit" class="navbar-brand">Re-cruit</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0"">
-                            <li class="nav-item"><a class="nav-link" ui-sref="about">About Us</a></li>
-                            <li class="nav-item"><a class="nav-link" ui-sref="jobs" ng-show="isLoggedIn">Jobs</a></li>
-                            <li class="nav-item"><a class="nav-link" ui-sref="companies" ng-show="isLoggedIn">Companies</a></li>
-                            <li class="nav-item"><a class="nav-link" ui-sref="contact" ng-show="isLoggedIn">Contact Us</a></li>
+                            <li class="nav-item"><a style="color:white" class="nav-link" ui-sref="about">About Us</a></li>
+                            <li class="nav-item"><a style="color:white" class="nav-link" ui-sref="jobs" ng-show="isLoggedIn">Jobs</a></li>
+                            <li class="nav-item"><a style="color:white" class="nav-link" ui-sref="companies" ng-show="isLoggedIn">Companies</a></li>
+                            <li class="nav-item"><a style="color:white" class="nav-link" ui-sref="contact" ng-show="isLoggedIn">Contact Us</a></li>
                     </ul>
                     <ul class="navbar-nav navbar-right">
-                            <li class="nav-item"><a  class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" ui-sref='logout' ng-show="isLoggedIn">Logout</span></a></li>
+                            <li class="nav-item"><a  style="color:white" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false" ui-sref='logout' ng-show="isLoggedIn">Logout</span></a></li>
                     </ul>
                     <ul class="navbar-nav navbar-right">
-                            <li class="nav-item"><a  class="nav-link" ui-sref="login"   role="button" aria-haspopup="true" aria-expanded="false" ng-show="!isLoggedIn">Login</a></li>
+                            <li class="nav-item"><a  style="color:white" class="nav-link" ui-sref="login"   role="button" aria-haspopup="true" aria-expanded="false" ng-show="!isLoggedIn">Login</a></li>
                     </ul>
                     <ul class="navbar-nav navbar-right">
-                            <li class="nav-item"><a  class="nav-link" ui-sref="register"  role="button" aria-haspopup="true" aria-expanded="false" ng-show="!isLoggedIn">Register</span></a></li>
+                            <li class="nav-item"><a  style="color:white" class="nav-link" ui-sref="register"  role="button" aria-haspopup="true" aria-expanded="false" ng-show="!isLoggedIn">Register</span></a></li>
                     </ul>
                     <ul class="navbar-nav navbar-right">
-                        <li class="nav-item"><a  class="nav-link" ui-sref="profile"  role="button" aria-haspopup="true" aria-expanded="false" ng-show="isLoggedIn">Profile</span></a></li>
+                        <li class="nav-item"><a  style="color:white" class="nav-link" ui-sref="profile"  role="button" aria-haspopup="true" aria-expanded="false" ng-show="isLoggedIn">Profile</span></a></li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                             <div class="input-group">
@@ -103,8 +110,8 @@
     <div ui-view></div>
   </div>
 
-<footer id="myFooter">
-    <div class="container">
+<footer style="background-color: #1F456E" id="myFooter">
+    <div class="container" >
             <div class="row">
                     <div class="col-sm-3">
                             <h2 class="logo"><a ui-sref="#"> Re-cruit </a></h2>
@@ -164,6 +171,8 @@
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="app.js"></script>
   <script src="login/LoginController.js"></script>
+  <script src="contact/contactController.js"></script>
+  <script src="editProfile/editProfileController.js"></script>
   <script src="register/RegistrationController.js"></script>
   <script src="resetpassword/ForgotPasswordController.js"></script>
   <script src="logout/LogoutController.js"></script>

@@ -47,6 +47,15 @@ function config($locationProvider,  $urlRouterProvider, $stateProvider, $httpPro
       .state('contact', {
           url: '/contact',
           templateUrl: 'contact/contact.html',
+          controller: 'contactController',
+          controllerAs: 'contact'
+      })
+
+      .state('editProfile', {
+        url: '/editProfile',
+        templateUrl: 'editProfile/editProfile.html',
+        controller: 'editProfileController',
+        controllerAs: 'editProf'
       })
 
       .state('login', {

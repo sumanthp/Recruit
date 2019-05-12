@@ -1,0 +1,115 @@
+<div class="ui raised very padded text container segment" ng-cloak>
+    <div style="padding-bottom:25px;padding-right:10px;padding-left:10px;padding-top:20px">
+        <h2 class="ui header">Edit Profile</h2>
+        <div style="background-color:#241571; border-radius: 20px">
+            </br>
+            <img ng-src="assets/images/empty_profile.jpg" class="round" width="130"  height="130" style="padding-left:20px;padding-top:15px">
+            <div class="edit">
+                <div>
+                    <i class="fa fa-pencil" ng-click="changeCover()" style="font-size:30px;margin-left:70px;color:#33adff;border-radius:0px;cursor:pointer; "></i>
+                </div>
+            </div>
+            <div class="center">
+                <p> 
+                    <i class="fa fa-pencil" ng-click="changeProfile()" style="font-size:30px;margin-left:70px;color:#33adff;border-radius:0px;cursor:pointer; "></i>
+                </p>  
+            </div>
+            </br>
+        </div>
+    </div> 
+    <!-- <hr> -->
+    </br>
+    <div>
+        <form name="editForm"  autocomplete="off" ng-submit="saveEdit()" novalidate>
+            <md-input-container class="md-block">
+                <md-icon><i class="fas fa-user"></i></md-icon>
+                <input name="name" ng-model="profile.name" type="text" placeholder="Name" required>
+                <div ng-messages="editForm.name.$error">
+                  <div ng-message="required">Enter name</div>    
+                </div>
+            </md-input-container>
+            <span class="error validationerror" ng-show="editForm.name.$invalid && editForm.name.$touched"></span>
+            <span class="help-block"></span>
+
+            <!-- <div>
+                <span>looking for job &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                        <input type="radio" name="options" ng-model="profile.option" value="yes"> Yes 
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" ng-model="profile.option"  value="no"> No
+                    </label>
+                </div>
+            </div> -->
+            <md-input-container class="md-block">
+                <md-icon><i class="fas fa-map-marker"></i></md-icon>
+                <input name="designation" ng-model="profile.designation" type="text" placeholder="Designation" required>
+                <div ng-messages="editForm.designation.$error">
+                    <div ng-message="required">Enter Designation</div>    
+                </div>
+            </md-input-container>
+            <span class="error validationerror" ng-show="editForm.designation.$invalid && editForm.designation.$touched"></span>
+            <span class="help-block"></span>
+            
+            <md-input-container class="md-block">
+                <md-icon><i class="fas fa-envelope"></i></md-icon>
+                <input name="email" ng-model="profile.email" type="email" placeholder="Email" required>
+                <div ng-messages="editForm.email.$error">
+                    <div ng-message="required">Enter valid Email</div>    
+                </div>
+            </md-input-container>
+            <span class="error validationerror" ng-show="editForm.email.$invalid && editForm.email.$touched"></span>
+            <span class="help-block"></span>
+
+            <md-input-container class="md-block">
+                <md-icon><i class="fas fa-map-marker"></i></md-icon>
+                <textarea name="bio" ng-model="profile.bio"  placeholder="Bio" required></textarea>
+                <div ng-messages="editForm.bio.$error">
+                    <div ng-message="required">Enter Bio</div>    
+                </div>
+            </md-input-container>
+            <span class="error validationerror" ng-show="editForm.bio.$invalid && editForm.bio.$touched"></span>
+            <span class="help-block"></span>
+
+            <md-input-container class="md-icon-float md-block">
+                <md-icon><i class="fas fa-phone"></i></md-icon>
+                <input name="phone" ng-model="profile.phone" type="contact" placeholder="Phone Number"  minlength="10" maxlength=10 required>
+                <div ng-messages="editForm.phone.$error">
+                    <div ng-message="required">Contact is required</div> 
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-icon><i class="fas fa-user"></i></md-icon>
+                <input name="college" ng-model="profile.college" type="text" placeholder="College name" required>
+                <div ng-messages="editForm.college.$error">
+                  <div ng-message="required">Enter college name</div>    
+                </div>
+            </md-input-container>
+            <span class="error validationerror" ng-show="editForm.college.$invalid && editForm.college.$touched"></span>
+            <span class="help-block"></span>
+
+
+            <div>
+                <i class="fas fa-briefcase"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span><b>looking for job</b> </span>
+                </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label> 
+                    <input type="radio" ng-model="profile.option" value="yes">
+                    Yes   
+                </label>
+                </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label> 
+                    <input type="radio" ng-model="profile.option" value="no">
+                    No
+                </label>
+                </br>     
+            </div>
+
+
+        </form>
+    </div>   
+</div>
