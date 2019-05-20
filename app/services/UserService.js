@@ -24,8 +24,8 @@
         function GetByUserLoginDetails(user){
             return $http({
                 method:"POST", 
-                // url:"https://recruit-apiservices.herokuapp.com/api/login", 
-                url:"http://localhost:5000/api/login",
+                url:"https://recruit-apiservices.herokuapp.com/api/login", 
+                // url:"http://localhost:5000/api/login",
                 // url:loginApiUrl,
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
@@ -36,8 +36,8 @@
         function Register(user){
             return $http({
                 method:"POST", 
-                // url:"https://recruit-apiservices.herokuapp.com/api/register", 
-                url:"http://localhost:5000/api/register",
+                url:"https://recruit-apiservices.herokuapp.com/api/register", 
+                //url:"http://localhost:5000/api/register",
                 // url:userRegisterApiUrl,
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
@@ -49,8 +49,8 @@
         function RegisterRecruiter(user){
             return $http({
                 method:"POST", 
-                // url:"https://recruit-apiservices.herokuapp.com/api/register/recruiter", 
-                url:"http://localhost:5000/api/register/recruiter",
+                url:"https://recruit-apiservices.herokuapp.com/api/register/recruiter", 
+                //url:"http://localhost:5000/api/register/recruiter",
                 // url:recruiterRegisterApiUrl,
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
@@ -60,7 +60,7 @@
         function FacebookAuth(){
             return $http({
                 method: "GET",
-                // url: "https://recruit-apiservices.herokuapp.com/auth/facebook",
+                url: "https://recruit-apiservices.herokuapp.com/auth/facebook",
                 // url: "http://localhost:5000/auth/facebook"
             }).then(handleSuccess, handleError);
         }
