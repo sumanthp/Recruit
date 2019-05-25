@@ -69,7 +69,7 @@
       function isLoggedIn(){
           if(AuthenticationService.isLoggedIn()){
               console.log('Success: User is Logged in');
-              AuthenticationService.GetUser();
+              //AuthenticationService.GetUser();
               return true;
           }else{
               console.log('Failure: User is not Logged in');
