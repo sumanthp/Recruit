@@ -20,32 +20,10 @@
         service.isLoggedIn = isLoggedIn;
         service.Logout = Logout;
         service.GetUser = GetUser;
+        service.GetProfileDetails = GetProfileDetails;
         return service;
 
         function Login(user, callback) {
-
-            /* Dummy authentication for testing, uses $timeout to simulate api call
-             ----------------------------------------------*/
-            // $timeout(function () {
-            //     var response;
-            //     UserService.GetByUsername(username)
-            //         .then(function (user) {
-            //             if (user !== null && user.password === password) {
-            //                 response = { success: true };
-            //             } else {
-            //                 response = { success: false, message: 'Username or password is incorrect' };
-            //             }
-            //             callback(response);
-            //         });
-            // }, 1000);
-
-            /* Use this for real authentication
-             ----------------------------------------------*/
-            //$http.post('/api/authenticate', { username: username, password: password })
-            //    .success(function (response) {
-            //        callback(response);
-            //    });
-
             UserService.GetByUserLoginDetails($httpParamSerializerJQLike(user)).then(function(response){
                 var response;
                 if(response.status==200){
@@ -71,7 +49,7 @@
         function GetUser(callback){
             const token = AuthToken.getToken();
             if(token!=null){
-                UserService.GetUserDetails().then(function(response){
+                UserService.GetUserDetails(token).then(function(response){
                     if(response == null){
                         response = {message:"Failed to get the user details"};
                     }
@@ -80,6 +58,21 @@
             }else{
                 $q.reject({message: 'User has no token'});
             }
+        }
+
+        function GetProfileDetails(token, callback){
+            UserService.GetProfileDetails($httpParamSerializerJQLike(token)).then(function(response){
+                if(response.status==200){
+                    if(response.data!=null){
+                        response = {success:true, data:response.data};
+                    }else{
+                        response = {success:false, data:response.data};
+                    }
+                }else{
+                    response = {success:false, data:response.data};
+                }
+                callback(response);
+            });
         }
 
         function RegisterRecruiter(user, callback){

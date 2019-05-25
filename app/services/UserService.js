@@ -18,7 +18,7 @@
         service.RegisterRecruiter = RegisterRecruiter;
         service.FacebookAuth = FacebookAuth;
         service.GetUserDetails = GetUserDetails;
-
+        service.GetProfileDetails = GetProfileDetails;
         return service;
 
         function GetByUserLoginDetails(user){
@@ -37,7 +37,7 @@
             return $http({
                 method:"POST", 
                 url:"https://recruit-apiservices.herokuapp.com/api/register", 
-                //url:"http://localhost:5000/api/register",
+                // url:"http://localhost:5000/api/register",
                 // url:userRegisterApiUrl,
                 data:user,
                 headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
@@ -65,14 +65,25 @@
             }).then(handleSuccess, handleError);
         }
         
-        function GetUserDetails(){
+        function GetUserDetails(token){
                 return $http({
                     method: "POST",
                     // url: "http://localhost:5000/api/getUserDetails",
                     url: "https://recruit-apiservices.herokuapp.com/api/getUserDetails",
+                    data: token,
                     // url:userProfileApiUrl,
                 }).then(handleSuccess,handleError);
         }
+
+        function GetProfileDetails(token){
+            return $http({
+                method: "POST",
+                url: "https://recruit-apiservices.herokuapp.com/api/getProfile",
+                // url: "http://localhost:5000/api/getProfile",
+                data: token,
+                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
+            }).then(handleSuccess,handleError);
+    }
 
         // private functions
         function handleSuccess(res) {
