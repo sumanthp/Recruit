@@ -1,19 +1,12 @@
-dist: trusty
-
 language: node_js
 node_js:
   - 10
 
-addons:
-  chrome: stable
-
-cache:
-  directories:
-    - "$HOME/.npm"
+script:
+ - echo "Deploy!!"
 
 install:
-  - npm install
+  - npm install -g firebase-tools
 
-script:
-  - npm run test-single-run -- --browsers ChromeHeadless
-  - (npm start > /dev/null &) && npm run protractor -- --capabilities.chromeOptions.args headless
+after_success:
+  - firebase deploy --project recruit-5fa61 --token 1/AWu2T4kk1ML3BxuCtQfgWphvEJ6gDL2Wb__K8r-z7ic
