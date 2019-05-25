@@ -28,7 +28,7 @@
                 // url:"http://localhost:5000/api/login",
                 // url:loginApiUrl,
                 data:user,
-                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
+                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
             }).then(handleSuccess,handleError);
             // .then(handleSuccess, handleError("Failed to Login. Try again"));
         }
@@ -40,7 +40,7 @@
                 // url:"http://localhost:5000/api/register",
                 // url:userRegisterApiUrl,
                 data:user,
-                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
+                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
             }).then(handleSuccess,handleError);
             //.success(handleSuccess).error(handleError);
             // .then(handleSuccess, handleError("Error Registration. Try again"));
@@ -53,7 +53,7 @@
                 //url:"http://localhost:5000/api/register/recruiter",
                 // url:recruiterRegisterApiUrl,
                 data:user,
-                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
+                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
             }).then(handleSuccess,handleError);
         }
 
@@ -62,6 +62,7 @@
                 method: "GET",
                 url: "https://recruit-apiservices.herokuapp.com/auth/facebook",
                 // url: "http://localhost:5000/auth/facebook"
+                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
             }).then(handleSuccess, handleError);
         }
         
@@ -81,7 +82,7 @@
                 url: "https://recruit-apiservices.herokuapp.com/api/getProfile",
                 // url: "http://localhost:5000/api/getProfile",
                 data: token,
-                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}
+                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8', 'Access-Control-Allow-Origin':'*'}
             }).then(handleSuccess,handleError);
     }
 
